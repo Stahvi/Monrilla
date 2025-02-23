@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var banana_scene: PackedScene
+
 @onready var spawn_l = $SpawnL
 @onready var spawn_r = $SpawnR
 @onready var banana_timer = $BananaTimer
