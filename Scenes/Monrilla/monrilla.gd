@@ -16,7 +16,7 @@ func _process(delta):
 	get_input()
 	
 func get_input():
-	#velocity.x = 0
+	velocity.x = 0
 	var left = Input.is_action_pressed("move_left")
 	var right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
