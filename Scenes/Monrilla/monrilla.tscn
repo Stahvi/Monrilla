@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bstyw22qrrhvn"]
+
+[ext_resource type="Script" path="res://Scenes/Monrilla/monrilla.gd" id="1_kom15"]
+[ext_resource type="Texture2D" uid="uid://c82dp4r0lpf4a" path="res://Assets/Images/Monrilla/Monkey-No BG.png" id="1_wrv54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh445"]
+size = Vector2(112, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwlmk"]
+size = Vector2(128, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86h7u"]
+size = Vector2(128, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aojco"]
+size = Vector2(8, 57.5)
+
+[node name="Monrilla" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_kom15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.10352e-05, -6.10352e-05)
+scale = Vector2(0.11792, 0.11792)
+texture = ExtResource("1_wrv54")
+
+[node name="Perfect" type="CollisionShape2D" parent="."]
+position = Vector2(0, -43.5)
+shape = SubResource("RectangleShape2D_nh445")
+debug_color = Color(0.956863, 0.054902, 0.501961, 0.419608)
+
+[node name="Ok" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_mwlmk")
+
+[node name="Ok2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -81)
+shape = SubResource("RectangleShape2D_86h7u")
+
+[node name="Ok3" type="CollisionShape2D" parent="."]
+position = Vector2(-60, -43.25)
+shape = SubResource("RectangleShape2D_aojco")
+
+[node name="Ok4" type="CollisionShape2D" parent="."]
+position = Vector2(60, -43.5)
+shape = SubResource("RectangleShape2D_aojco")

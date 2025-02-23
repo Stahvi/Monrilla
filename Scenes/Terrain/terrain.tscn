@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://di5w83rqkb1rg"]
+
+[ext_resource type="Texture2D" uid="uid://c5v2kiue5gr2m" path="res://Assets/Images/country-platform-files/country-platform-preview.png" id="1_e4j8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34b2l"]
+size = Vector2(1107, 50)
+
+[node name="Terrain" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(538.269, 298.25)
+scale = Vector2(2.8139, 3.78795)
+texture = ExtResource("1_e4j8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(543.5, 636)
+shape = SubResource("RectangleShape2D_34b2l")
