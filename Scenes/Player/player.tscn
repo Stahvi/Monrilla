@@ -15,7 +15,7 @@ size = Vector2(128, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aojco"]
 size = Vector2(8, 57.5)
 
-[node name="Monrilla" type="CharacterBody2D"]
+[node name="Monrilla" type="CharacterBody2D" groups=["player"]]
 input_pickable = true
 script = ExtResource("1_kom15")
 

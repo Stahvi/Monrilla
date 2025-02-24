@@ -21,6 +21,7 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 	#get_input()
 
+
 func get_gravity() -> float:
 	return gravity
 
