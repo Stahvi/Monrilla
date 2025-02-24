@@ -15,10 +15,14 @@ func _ready():
 	pass
 
 func spawn_bananas() -> void:
+	print("bananas")
 	var new_banana = banana_scene.instantiate()
+	print("bananas instantiated")
 	var x_pos = randf_range(spawn_l.position.x, spawn_r.position.x)
-	new_banana.position = Vector2 (spawn_l.position.y, x_pos)
+	new_banana.position = Vector2 (x_pos, spawn_l.position.y)
+	print("There's a new banana")
 	banana_holder.add_child(new_banana)
+	print("banana added as a child")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +32,6 @@ func _process(delta):
 
 func _on_banana_timer_timeout():
 	spawn_bananas()
-	print("bananas")
+
 	
 

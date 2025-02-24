@@ -15,10 +15,10 @@ position = Vector2(1, 0)
 [node name="Monrilla" parent="." instance=ExtResource("2_w72ye")]
 position = Vector2(224, 464)
 
-[node name="BananaHolder" type="Node" parent="."]
+[node name="BananaHolder" type="Node2D" parent="."]
 
 [node name="BananaTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.552
 autostart = true
 
 [node name="SpawnL" type="Marker2D" parent="."]
