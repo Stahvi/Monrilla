@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cofu5a26w2ns7"]
 
-[ext_resource type="Texture2D" uid="uid://bxcf482dpc7ku" path="res://Assets/Images/Enemies/Swany the Ass_no bg.png" id="1_j3ngh"]
+[ext_resource type="Texture2D" uid="uid://baw0ogsmde5ev" path="res://Assets/Images/Enemies/Assie the Swan_no bg.png" id="1_t224i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtli6"]
-height = 124.227
+radius = 5.46557
+height = 53.2402
 
 [node name="Assie" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, -1.90735e-06)
-scale = Vector2(0.2525, 0.2525)
-texture = ExtResource("1_j3ngh")
+scale = Vector2(0.12625, 0.12625)
+texture = ExtResource("1_t224i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(7.62939e-06, 7.62939e-06)
 scale = Vector2(4.39112, 0.901574)
 shape = SubResource("CapsuleShape2D_vtli6")
 one_way_collision = true
