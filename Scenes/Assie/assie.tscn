@@ -7,6 +7,8 @@ radius = 5.46557
 height = 53.2402
 
 [node name="Assie" type="Area2D"]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(1.33621, 1.29682)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.12625, 0.12625)

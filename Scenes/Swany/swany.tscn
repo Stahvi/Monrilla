@@ -1,9 +1,19 @@
-[gd_scene format=3 uid="uid://cx2syu55a1vws"]
+[gd_scene load_steps=3 format=3 uid="uid://cx2syu55a1vws"]
 
-[node name="Area2D" type="Area2D"]
+[ext_resource type="Texture2D" uid="uid://bxcf482dpc7ku" path="res://Assets/Images/Enemies/Swany the Ass_no bg.png" id="1_45fbv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5p5mx"]
+radius = 24.0
+height = 64.0
+
+[node name="Swany" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("1_45fbv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.913114, 0.859937)
+shape = SubResource("CapsuleShape2D_5p5mx")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
