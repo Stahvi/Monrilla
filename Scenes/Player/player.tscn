@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bstyw22qrrhvn"]
 
-[ext_resource type="Script" path="res://Scenes/Monrilla/monrilla.gd" id="1_kom15"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_kom15"]
 [ext_resource type="Texture2D" uid="uid://c82dp4r0lpf4a" path="res://Assets/Images/Monrilla/Monkey-No BG.png" id="1_wrv54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh445"]
