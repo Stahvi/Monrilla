@@ -9,20 +9,20 @@ var screen_size
 @export var jump_force:float = -1000.00
 @export var jump_damp:float = 0.05
 
+var interact: bool = false
+var current_grababble = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta):
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	pass
 	#get_input()
 
-
-func get_gravity() -> float:
+func my_get_gravity() -> float:
 	return gravity
 
 #func get_input():
@@ -47,7 +47,7 @@ func get_gravity() -> float:
 func _physics_process(delta):
 	
 	if not is_on_floor():
-		velocity.y += get_gravity() * delta
+		velocity.y += my_get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -62,3 +62,43 @@ func _physics_process(delta):
 		
 	#velocity.y += gravity * delta
 	move_and_slide()
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
+	
+	if interact == true and Input.is_action_just_pressed("grab"):
+		print("banana should be grabbed")
+		current_grababble.queue_free()
+		print("banana should be deade")
+		current_grababble = null
+		interact = false
+		print("banana grabbed")
+
+#Deteccao pra Grab de frutas
+#func _on_body_entered(body: Area2D) -> void:
+	#if body.is_in_group("grabbable"):
+		#interact = true
+		#current_grababble = body
+		#print("body entered true")
+
+#func _on_body_exited(body: Area2D) -> void:
+	#if body.is_in_group("grabbable"):
+		#interact = false # Replace with function body.
+		#current_grababble = null
+		#print("body entered false")
+
+
+
+func _on_pickup_zone_area_shape_entered(area_rid, area, area_shape_index, local_shape_index) -> void:
+	print("Something entered: ", area.name)
+	if area.is_in_group("grabbable"):
+		interact = true
+		current_grababble = area
+		print("body entered true")
+	 # Replace with function body.
+
+
+func _on_pickup_zone_area_shape_exited(area_rid, area, area_shape_index, local_shape_index) -> void:
+	if area != null and area.is_in_group("grabbable"):
+		interact = false # Replace with function body.
+		current_grababble = null
+		print("body entered false")
