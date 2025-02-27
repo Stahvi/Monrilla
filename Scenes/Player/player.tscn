@@ -11,7 +11,7 @@ height = 26.4998
 radius = 6.60788
 height = 22.2996
 
-[node name="Monrilla" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 input_pickable = true
 script = ExtResource("1_kom15")
 
