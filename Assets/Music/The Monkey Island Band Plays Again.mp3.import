@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y23yc6f2nq68"
+path="res://.godot/imported/The Monkey Island Band Plays Again.mp3-4b5a70cc0511b3ed47ab05b2c14220af.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/The Monkey Island Band Plays Again.mp3"
+dest_files=["res://.godot/imported/The Monkey Island Band Plays Again.mp3-4b5a70cc0511b3ed47ab05b2c14220af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

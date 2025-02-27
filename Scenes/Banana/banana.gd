@@ -1,5 +1,7 @@
 extends Area2D
 
+signal fruit_lost
+
 @export var speed:float = 300
 # Called when the node enters the scene tree for the first time.
 var interact: bool = false
@@ -16,3 +18,5 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free() # Replace with function body.
+	fruit_lost.emit()
+	

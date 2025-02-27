@@ -73,7 +73,7 @@ func _physics_process(delta):
 		current_grababble.queue_free()
 		current_grababble = null
 		interact = false
-		print("banana grabbed")
+		#print("banana grabbed")
 		fruit_grabbed.emit()
 		
 
@@ -93,11 +93,11 @@ func _physics_process(delta):
 
 #detection for grabbable item in
 func _on_pickup_zone_area_shape_entered(area_rid, area, area_shape_index, local_shape_index) -> void:
-	print("Something entered: ", area.name)
+	#print("Something entered: ", area.name)
 	if area.is_in_group("grabbable"):
 		interact = true
 		current_grababble = area
-		print("body entered true")
+		#print("body entered true")
 	 # Replace with function body.
 
 #detection for grabbable item out
@@ -105,4 +105,4 @@ func _on_pickup_zone_area_shape_exited(area_rid, area, area_shape_index, local_s
 	if area != null and area.is_in_group("grabbable"):
 		interact = false # Replace with function body.
 		current_grababble = null
-		print("body entered false")
+		#print("body entered false")

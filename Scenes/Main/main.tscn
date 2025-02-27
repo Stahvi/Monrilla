@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds4coag1bsp26"]
+[gd_scene load_steps=10 format=3 uid="uid://ds4coag1bsp26"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_r60wt"]
 [ext_resource type="PackedScene" uid="uid://di5w83rqkb1rg" path="res://Scenes/Terrain/terrain.tscn" id="1_r874h"]
 [ext_resource type="PackedScene" uid="uid://ya5vwbofgc5o" path="res://Scenes/Banana/banana.tscn" id="2_uw234"]
 [ext_resource type="PackedScene" uid="uid://bstyw22qrrhvn" path="res://Scenes/Player/player.tscn" id="2_w72ye"]
-[ext_resource type="Script" path="res://Scenes/Main/score_label.gd" id="5_1xq7v"]
+[ext_resource type="AudioStream" uid="uid://y23yc6f2nq68" path="res://Assets/Music/The Monkey Island Band Plays Again.mp3" id="5_rwp10"]
+[ext_resource type="AudioStream" uid="uid://bkl1jn06y0jq6" path="res://Assets/Sounds/sfx_sounds_interaction6.wav" id="6_nr3s0"]
+[ext_resource type="AudioStream" uid="uid://dw6m0es75koo" path="res://Assets/Sounds/sfx_sounds_interaction16.wav" id="7_0wyr3"]
+
+[sub_resource type="GDScript" id="GDScript_dviui"]
+script/source = "extends Label
+
+
+
+	
+"
 
 [sub_resource type="Theme" id="Theme_3b56k"]
 
@@ -25,10 +35,10 @@ wait_time = 1.552
 autostart = true
 
 [node name="SpawnL" type="Marker2D" parent="."]
-position = Vector2(32, -64)
+position = Vector2(64, -64)
 
 [node name="SpawnR" type="Marker2D" parent="."]
-position = Vector2(1072, -64)
+position = Vector2(1016, -64)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -51,7 +61,7 @@ theme_override_colors/font_color = Color(0.572549, 0.964706, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.243137, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Score: 0"
-script = ExtResource("5_1xq7v")
+script = SubResource("GDScript_dviui")
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthLabel" type="Label" parent="UI"]
@@ -65,5 +75,20 @@ theme_override_colors/font_color = Color(0.909804, 0.054902, 0.188235, 1)
 theme_override_colors/font_shadow_color = Color(0.0745098, 0.172549, 1, 0.54902)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 0"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1016, -64)
+stream = ExtResource("5_rwp10")
+autoplay = true
+parameters/looping = true
+
+[node name="BananaGrabbedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1016, -64)
+stream = ExtResource("6_nr3s0")
+
+[node name="BananaLostSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1016, -64)
+stream = ExtResource("7_0wyr3")
+volume_db = 5.0
 
 [connection signal="timeout" from="BananaTimer" to="." method="_on_banana_timer_timeout"]
