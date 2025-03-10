@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dabu5ws1afk24"
-path="res://.godot/imported/item-banana-idle-middle-01.png-698823ef332bc516e2b0497f54079a67.ctex"
+uid="uid://cqrpoji73q0in"
+path="res://.godot/imported/vecteezy_watermelon-fruits-vector_5862483.jpg-5bb04d2e4db80b4f527b0bd0a9f5a452.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/item-banana-idle-middle-01.png"
-dest_files=["res://.godot/imported/item-banana-idle-middle-01.png-698823ef332bc516e2b0497f54079a67.ctex"]
+source_file="res://Assets/Images/Fruits/vecteezy_watermelon-fruits-vector_5862483.jpg"
+dest_files=["res://.godot/imported/vecteezy_watermelon-fruits-vector_5862483.jpg-5bb04d2e4db80b4f527b0bd0a9f5a452.ctex"]
 
 [params]
 

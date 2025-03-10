@@ -3,15 +3,16 @@ extends CharacterBody2D
 signal fruit_grabbed
 
 @export var move_force:float = 500.0
-@export var move_accel:float = 0.06
-@export var move_damp:float = 0.05
+@export var move_accel:float = 0.45
+@export var move_damp:float = 0.4
 var gravity = 2500
 var screen_size
 
 @export var jump_force:float = -1000.00
-@export var jump_damp:float = 0.05
+@export var jump_damp:float = 0.06
 
 var interact: bool = false
+var was_in_air: bool = false
 var current_grababble = null
 
 
@@ -51,11 +52,19 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += my_get_gravity() * delta
+		was_in_air = true
+		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
+		$JumpSound.play()
+		was_in_air = true
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = velocity.y * jump_damp
 		
+	if is_on_floor() and was_in_air == true:
+		was_in_air = false
+		$FallSound.play()
+				
 				
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:

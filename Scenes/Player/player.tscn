@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bstyw22qrrhvn"]
+[gd_scene load_steps=7 format=3 uid="uid://bstyw22qrrhvn"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_kom15"]
 [ext_resource type="Texture2D" uid="uid://c82dp4r0lpf4a" path="res://Assets/Images/Monrilla/Monkey-No BG.png" id="1_wrv54"]
+[ext_resource type="AudioStream" uid="uid://ck3mnr4riul1d" path="res://Assets/Sounds/sfx_movement_jump13.wav" id="3_jekhm"]
+[ext_resource type="AudioStream" uid="uid://cwk530i0tamr0" path="res://Assets/Sounds/sfx_movement_jump13_landing.wav" id="4_u3bva"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewsjp"]
 radius = 7.74282
@@ -34,6 +36,16 @@ collision_mask = 12
 position = Vector2(-128, -40)
 scale = Vector2(8.47473, 4.30501)
 shape = SubResource("CapsuleShape2D_t051j")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("3_jekhm")
+pitch_scale = 2.37
+
+[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("4_u3bva")
+volume_db = 10.0
 
 [connection signal="area_shape_entered" from="PickupZone" to="." method="_on_pickup_zone_area_shape_entered"]
 [connection signal="area_shape_exited" from="PickupZone" to="." method="_on_pickup_zone_area_shape_exited"]
