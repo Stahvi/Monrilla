@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-signal fruit_grabbed
+#signal fruit_grabbed
+#signal on_player_died
 
 @export var move_force:float = 500.0
 @export var move_accel:float = 0.45
@@ -83,7 +84,7 @@ func _physics_process(delta):
 		current_grababble = null
 		interact = false
 		#print("banana grabbed")
-		fruit_grabbed.emit()
+		SignalHub.fruit_grabbed.emit()
 		
 
 #Deteccao pra Grab de frutas
@@ -115,3 +116,7 @@ func _on_pickup_zone_area_shape_exited(area_rid, area, area_shape_index, local_s
 		interact = false # Replace with function body.
 		current_grababble = null
 		#print("body entered false")
+		
+func die():
+	set_physics_process(false)
+	SignalHub.on_player_died.emit()

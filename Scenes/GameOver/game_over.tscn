@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://5toamlrmvfgp"]
+
+[ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_emh64"]
+[ext_resource type="FontFile" uid="uid://b16ki1s4sy1xa" path="res://Assets/fonts/Skranji-Bold.ttf" id="2_dg4mx"]
+[ext_resource type="LabelSettings" uid="uid://c8rqgs2nw27yd" path="res://Assets/fonts/Press Space.tres" id="3_anihd"]
+[ext_resource type="AudioStream" uid="uid://dh10mh5yj1xs" path="res://Assets/Sounds/game_over.wav" id="4_tm2un"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ewyos"]
+font = ExtResource("2_dg4mx")
+font_size = 90
+font_color = Color(0.0117647, 0.0117647, 0.145098, 1)
+outline_size = 1
+shadow_size = 3
+shadow_color = Color(1, 0.517647, 0.45098, 0.627451)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emh64")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="GOLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = -43.0
+offset_right = 198.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ewyos")
+
+[node name="SpaceLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -33.5
+offset_right = 156.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS SPACE"
+label_settings = ExtResource("3_anihd")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tm2un")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

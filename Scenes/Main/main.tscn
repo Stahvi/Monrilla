@@ -1,94 +1,108 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds4coag1bsp26"]
+[gd_scene load_steps=9 format=3 uid="uid://baaxkv3rkphqf"]
 
+[ext_resource type="Texture2D" uid="uid://c8745nnde73wa" path="res://Assets/Images/sky.png" id="1_c2p6n"]
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_r60wt"]
-[ext_resource type="PackedScene" uid="uid://di5w83rqkb1rg" path="res://Scenes/Terrain/terrain.tscn" id="1_r874h"]
-[ext_resource type="PackedScene" uid="uid://ya5vwbofgc5o" path="res://Scenes/Fruits/fruits.tscn" id="2_uw234"]
-[ext_resource type="PackedScene" uid="uid://bstyw22qrrhvn" path="res://Scenes/Player/player.tscn" id="2_w72ye"]
-[ext_resource type="AudioStream" uid="uid://y23yc6f2nq68" path="res://Assets/Music/The Monkey Island Band Plays Again.mp3" id="5_rwp10"]
-[ext_resource type="AudioStream" uid="uid://bkl1jn06y0jq6" path="res://Assets/Sounds/sfx_sounds_interaction6.wav" id="6_nr3s0"]
-[ext_resource type="AudioStream" uid="uid://dw6m0es75koo" path="res://Assets/Sounds/sfx_sounds_interaction16.wav" id="7_0wyr3"]
+[ext_resource type="FontFile" uid="uid://d3yfmy84oqhqf" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_llixj"]
+[ext_resource type="LabelSettings" uid="uid://c8rqgs2nw27yd" path="res://Assets/fonts/Press Space.tres" id="4_v2x1l"]
 
-[sub_resource type="GDScript" id="GDScript_dviui"]
-script/source = "extends Label
+[sub_resource type="LabelSettings" id="LabelSettings_7hlow"]
+font = ExtResource("2_llixj")
+font_size = 89
+font_color = Color(1, 0, 1, 1)
+outline_size = 17
+outline_color = Color(0, 0.294118, 1, 1)
 
+[sub_resource type="Animation" id="Animation_5ado0"]
+resource_name = "flash"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MC/PressSpaceLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
+[sub_resource type="Animation" id="Animation_u7a42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MC/PressSpaceLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-	
-"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jl23l"]
+_data = {
+"RESET": SubResource("Animation_u7a42"),
+"flash": SubResource("Animation_5ado0")
+}
 
-[sub_resource type="Theme" id="Theme_3b56k"]
-
-[node name="Main" type="Node2D"]
-script = ExtResource("1_r60wt")
-banana_scene = ExtResource("2_uw234")
-
-[node name="Terrain" parent="." instance=ExtResource("1_r874h")]
-position = Vector2(1, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_w72ye")]
-position = Vector2(224, 464)
-
-[node name="BananaHolder" type="Node2D" parent="."]
-
-[node name="BananaTimer" type="Timer" parent="."]
-wait_time = 1.552
-autostart = true
-
-[node name="SpawnL" type="Marker2D" parent="."]
-position = Vector2(64, -64)
-
-[node name="SpawnR" type="Marker2D" parent="."]
-position = Vector2(1016, -64)
-
-[node name="UI" type="Control" parent="."]
+[node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r60wt")
 
-[node name="ScoreLabel" type="Label" parent="UI"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.4
-anchor_top = -0.8
-anchor_right = 0.85
-offset_left = 56.0
-offset_top = 32.0
-offset_right = 117.0
-offset_bottom = 55.0
-theme_override_colors/font_color = Color(0.572549, 0.964706, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.243137, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Score: 0"
-script = SubResource("GDScript_dviui")
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c2p6n")
+expand_mode = 1
 
-[node name="HealthLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_top = 56.0
-offset_right = 99.0
-offset_bottom = 111.0
-theme = SubResource("Theme_3b56k")
-theme_override_colors/font_color = Color(0.909804, 0.054902, 0.188235, 1)
-theme_override_colors/font_shadow_color = Color(0.0745098, 0.172549, 1, 0.54902)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "HP: 0"
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1016, -64)
-stream = ExtResource("5_rwp10")
-autoplay = true
-parameters/looping = true
+[node name="Title" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Monrilla"
+label_settings = SubResource("LabelSettings_7hlow")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BananaGrabbedSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1016, -64)
-stream = ExtResource("6_nr3s0")
+[node name="PressSpaceLabel" type="Label" parent="MC"]
+layout_mode = 2
+text = "PRESS SPACE
+TO 
+PLAY"
+label_settings = ExtResource("4_v2x1l")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BananaLostSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1016, -64)
-stream = ExtResource("7_0wyr3")
-volume_db = 5.0
+[node name="HSText" type="Label" parent="MC"]
+layout_mode = 2
 
-[connection signal="timeout" from="BananaTimer" to="." method="_on_banana_timer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jl23l")
+}
+autoplay = "flash"
