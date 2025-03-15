@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FruitData" load_steps=3 format=3 uid="uid://dcbh6b0ktocd"]
+
+[ext_resource type="Script" path="res://Database/Fruit/fruit.gd" id="1_7haj0"]
+[ext_resource type="Texture2D" uid="uid://dgukhtv3fb5s2" path="res://Assets/Images/Fruits/Single_Banana-removebg-preview.png" id="2_mmmoy"]
+
+[resource]
+script = ExtResource("1_7haj0")
+name = "Banana"
+points = 1
+health_effect = 0
+sprite2d = ExtResource("2_mmmoy")
+fall_speed_multiplier = 1.0
+custom_scale = Vector2(0.8, 0.8)

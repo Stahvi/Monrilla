@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FruitData" load_steps=3 format=3 uid="uid://wt1680osfugt"]
+
+[ext_resource type="Script" path="res://Database/Fruit/fruit.gd" id="1_maqrf"]
+[ext_resource type="Texture2D" uid="uid://dlndtix4rmmom" path="res://Assets/Images/Fruits/Poison_Banana-removebg-preview.png" id="2_c5tiv"]
+
+[resource]
+script = ExtResource("1_maqrf")
+name = "Poisoned Banana"
+points = 10
+health_effect = -2
+sprite2d = ExtResource("2_c5tiv")
+fall_speed_multiplier = 0.5
+custom_scale = Vector2(1.25, 1.25)

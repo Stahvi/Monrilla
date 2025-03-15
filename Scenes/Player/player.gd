@@ -80,11 +80,15 @@ func _physics_process(delta):
 	
 	#fruit grabbing
 	if interact == true and Input.is_action_just_pressed("grab"):
+		#var points = current_grababble.point
+		#var health_effect = current_grababble.health_effect
 		current_grababble.queue_free()
 		current_grababble = null
 		interact = false
 		#print("banana grabbed")
 		SignalHub.fruit_grabbed.emit()
+		#SignalHub.fruit_grabbed.emit(points,health_effect)
+		
 		
 
 #Deteccao pra Grab de frutas

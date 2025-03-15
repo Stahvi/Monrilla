@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FruitData" load_steps=3 format=3 uid="uid://d2indppwod5yp"]
+
+[ext_resource type="Script" path="res://Database/Fruit/fruit.gd" id="1_6juqb"]
+[ext_resource type="Texture2D" uid="uid://dxgw20fspqkeb" path="res://Assets/Images/Fruits/watermelonremovebg.png" id="2_xc08h"]
+
+[resource]
+script = ExtResource("1_6juqb")
+name = "Watermelon"
+points = 1
+health_effect = 2
+sprite2d = ExtResource("2_xc08h")
+fall_speed_multiplier = 1.5

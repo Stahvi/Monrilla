@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FruitData" load_steps=3 format=3 uid="uid://dpregre685sob"]
+
+[ext_resource type="Script" path="res://Database/Fruit/fruit.gd" id="1_u4l3i"]
+[ext_resource type="Texture2D" uid="uid://dabu5ws1afk24" path="res://Assets/Images/Fruits/item-banana-idle-middle-01.png" id="2_cuv17"]
+
+[resource]
+script = ExtResource("1_u4l3i")
+name = "Banana Bunch"
+points = 5
+health_effect = 0
+sprite2d = ExtResource("2_cuv17")
+fall_speed_multiplier = 1.2
+custom_scale = Vector2(0.6, 0.6)
